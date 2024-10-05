@@ -37,28 +37,28 @@ if(colorMode == 0){fill(0,0,100);}
 if(colorMode == 360){fill(0,100,0);}
 //textSize(width*0.04); //800*0.03 = 24
 
-float baseTextSize = min(width, height) * 0.01; // Base text size proportional to the smaller screen dimension
+float baseTextSize = min(width, height) * 0.03; // Base text size proportional to the smaller screen dimension
 
 //Positive element result text
-String positiveElementIs = "Your most positive element is " ;
+String positiveElementIs = "Your high element is " ;
 textSize(baseTextSize);
-text(positiveElementIs,-(width*0.04), height*0.06);
-textSize(baseTextSize * 1.2); // Slightly larger for the element name
+text(positiveElementIs,-(width*0.05), height*0.06);
+textSize(baseTextSize*1.02); // Slightly larger for the element name
 textAlign(LEFT);
 fill(hue2[maxIndex],sat2[maxIndex],bri2[maxIndex],100);
-text(elements[maxIndex],width*0.22, height*0.06);
+text(elements[maxIndex],width*0.05, height*0.06);
 
 //neutral element result text
-String neutralElementIs = "Your neutral element is " ;
+String neutralElementIs = "Your low element is " ;
 if(colorMode == 0){fill(0,0,100);}
 if(colorMode == 360){fill(0,100,0);}
 textSize(baseTextSize);
 textAlign(CENTER);
 text(neutralElementIs,-(width*0.05), height*0.11);
 fill(hue2[minIndex],sat2[minIndex],bri2[minIndex],100);
-textSize(baseTextSize * 1.2); // Slightly larger for the element name
+textSize(baseTextSize*1.02); // Slightly larger for the element name
 textAlign(LEFT);
-text(elements[minIndex],width*0.18, height*0.11);
+text(elements[minIndex],width*0.07, height*0.11);
 textAlign(CENTER);
 
 // Adjust the bounding width
@@ -72,7 +72,7 @@ if(colorMode == 0){fill(0,0,100);}
 if(colorMode == 360){fill(0,100,0);}
 
 translate(0,0);
-textSize(width*0.025); //800*0.02 = 16
+textSize(width*0.015); //800*0.02 = 16
 String earthIntroText="Ah, seeker of mysteries, let me reveal to you the essence of your being. ";
 String fireIntroText="Oh, passionate soul, let me illuminate the essence of your being. You are the embodiment of fire's fierce energy, burning brightly and radiating warmth to all who encounter you.";
 String waterIntroText="Oh, fluid soul, let me reveal the essence of your being.";

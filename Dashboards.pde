@@ -1,4 +1,4 @@
-////DASHBOARD/////
+/////DASHBOARD/////
 
 
 void draw_dashboard(int dashboardId){
@@ -89,7 +89,7 @@ float yPos = height*0.5;
 /////DASH 1/////
 if (dashboardId == 1){
 
-drawRadialGraph(listColor, k, height/2 ,i, value, xPos,yPos);
+//drawRadialGraph(listColor, k, height/2 ,i, value, xPos,yPos);
 drawPentagonMan(listColor,value, 4, 10, i,k*2, xPos,yPos);
 //drawArcs(listColor, value, 0.5,100, k, displayWidth*0.8, displayHeight*0.6);
 drawRadar(listColor, k, value, xPos, yPos);
@@ -371,70 +371,50 @@ void drawPulseLines(float val, float k,  float yOffset, color col) {
 
 
 
-void drawRadialGraph(color col, int k, float scale, int i, float val, float w, float h){
-
-//colorMode();
-//int controlPointNum = 80;
-float rad = 50;
-//float radVariance = displayHeight/4;//OVERALL SIZE OF GRAPH
-//strokeWeight(1);
-noFill();
-
-//for (int e=0; e <= tuftAreas.length-1; e++){ 
-  //DEBUG println(averages[e]);
-  //int controlPointNum = averages[e];
+void drawRadialGraph(color col, int k, float scale, int i, float val, float w, float h) {
+  float rad = 50;
   int numberOfValues = tuftAreas[0].size();
-  //println(numberOfValues);
   
-  stroke(col,2);
-  //noStroke();
-  noFill();
-  //fill(col);
+  // Increase alpha for more visibility
+  fill(col, 5);
+  stroke(col, 50);
+  strokeWeight(2);
 
-  
-  
-  float firstX = 0; // Initialize variables to store the first vertex's position
+  float firstX = 0;
   float firstY = 0;
   float a = 0;
   float shapeX = 0;
   float shapeY = 0;
-  float peaks=0;
+  float peaks = 0;
 
-  //vertex((width/2+rad), height/2); //first point
-  float segments = TWO_PI/numberOfValues;
+  float segments = TWO_PI / numberOfValues;
+  
+  // Use curveVertex for smoother curves
   beginShape();
-  for(int s=0; s<numberOfValues; s++){
-   // println(segments);
-   
-  pushMatrix();
- 
-    //float randomRad = rad+random(1.5)*radVariance;
-    peaks = rad+map(tuftAreas[i].get(s),0,360,0,2)*scale;
-    //float peaks = rad+map(value,0,360,0,2)*radVariance;
-    a = segments*s;
-    //println(peaks);
-    shapeX = cos(a)*peaks;
-    shapeY = sin(a)*peaks;
-    //circle(width/2+x, height/2+y, 10);
+  
+  // Add extra points for smoother start and end
+  for (int s = -1; s <= numberOfValues; s++) {
+    int index = s;
+    if (s == -1) index = numberOfValues - 1;
+    if (s == numberOfValues) index = 0;
     
-    if (s == 0) {
-    // Store the position of the first vertex
-    firstX = shapeX;
-    firstY = shapeY;
-    //println(firstX,firstY);
-    //endShape();
-  }
-popMatrix();
-    curveVertex((w+shapeX), h+shapeY);
-}//end for loop
-  curveVertex(firstX, firstY);
-endShape();
- 
-a=0;
-shapeX = 0;
-shapeY = 0;
-peaks=0;
+    peaks = rad + map(tuftAreas[i].get(index), 0, 360, 0, 2) * scale;
+    // Apply smoothing
+    peaks = lerp(rad, peaks, 0.7);
+    
+    a = segments * s;
+    shapeX = cos(a) * peaks;
+    shapeY = sin(a) * peaks;
 
+    if (s == 0) {
+      firstX = w + shapeX;
+      firstY = h + shapeY;
+    }
+
+    curveVertex(w + shapeX, h + shapeY);
+  }
+  
+  endShape(CLOSE);
 }
 
 
