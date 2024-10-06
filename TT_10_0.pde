@@ -20,12 +20,12 @@
 ///////////////////////////
 ////////CONFIG////////////
 ////////////////1/////////
-boolean offline = false; //TESTING OFFLINE
+boolean offline = true; //TESTING OFFLINE
 //DASHBOARD 
 int dashboardId = 1; //Dashboard output number - set in UI
 int valueIncrement = 7;
 int speed = 5;//lower slower
-boolean saveImage = true;
+boolean saveImage = false;
 boolean isRPI = false;
 int scale = 0;
 int colorMode = 0;//0=Black , 360=White

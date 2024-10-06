@@ -58,7 +58,7 @@ text(neutralElementIs,-(width*0.05), height*0.11);
 fill(hue2[minIndex],sat2[minIndex],bri2[minIndex],100);
 textSize(baseTextSize*1.02); // Slightly larger for the element name
 textAlign(LEFT);
-text(elements[minIndex],width*0.07, height*0.11);
+text(elements[minIndex],width*0.05, height*0.11);
 textAlign(CENTER);
 
 // Adjust the bounding width

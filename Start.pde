@@ -40,7 +40,7 @@ if(colorMode == 360){fill(0,100,0);}
   //triangle(50,400,100,500,150,400);//x,y,x,y,x,y,x,y
   //DYNAMIC 
   //triangle(width/5+25,heightOffset-50,width/5+75,heightOffset-150,width/5+125,heightOffset-50);//x,y,x,y,x,y,x,y
-  triangle(width/5*0.2,heightOffset-50,width/5*0.2+50,heightOffset-150,width/5*0.2+100,heightOffset-50);//x,y,x,y,x,y,x,y
+  triangle(width/5*0.2,heightOffset-150,width/5*0.2+50,heightOffset-50,width/5*0.2+100,heightOffset-150);//x,y,x,y,x,y,x,y
   line(width/5*0.2+10,heightOffset-100,width/5*0.2+85,heightOffset-100);
   
  //BLUE WATER
@@ -61,7 +61,7 @@ if(colorMode == 360){fill(0,100,0);}
   //RED FIRE
   stroke(347,100,80);
   //triangle(500,500,550,400,600,500);
-  triangle(width/5*3.2,heightOffset-150,width/5*3.2+50,heightOffset-50,width/5*3.2+100,heightOffset-150);//x,y,x,y,x,y,x,y
+  triangle(width/5*3.2,heightOffset-50,width/5*3.2+50,heightOffset-150,width/5*3.2+100,heightOffset-50);//x,y,x,y,x,y,x,y
   
   
   //LIME AETHER
